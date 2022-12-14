@@ -1,7 +1,8 @@
 import React from 'react'
+import { CustomCard } from './assets/components/card/CustomCard'
 
 function App() {
-  return <div>Hello world</div>
+  return <></>
 }
 
 export default App
