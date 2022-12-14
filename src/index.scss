@@ -1,0 +1,29 @@
+@import url("./styles/variables.scss");
+
+@mixin border($value) {
+  border-radius: $value !important;
+}
+
+@mixin displayFlex ($display, $Justify, $align){
+  display: $display;
+  justify-content: $Justify;
+  align-items: $align;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.login-main{
+  @include displayFlex('flex','center' ,'center');
+  height: calc(90vh - 64px);
+}
+.app-logo{
+  display: flex;
+  justify-content: center;
+  padding: 10px 5px;
+}
+.MuiOutlinedInput-root{
+  padding: 0px !important;
+}

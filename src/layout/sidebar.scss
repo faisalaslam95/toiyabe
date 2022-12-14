@@ -1,0 +1,22 @@
+@import "../styles/variables.scss";
+
+.sidebar-tab-text {
+  text-transform: capitalize;
+  color: $primary !important;
+}
+
+.active-tab {
+  width: auto !important;
+  background-color: $primary !important;
+  color: white !important;
+  text-transform: capitalize;
+}
+
+.black_icon {
+  filter: brightness(0) invert(0);
+}
+
+.white_icon {
+  filter: brightness(0) invert(1);
+  color: $white !important;
+}
