@@ -1,15 +1,17 @@
-@import "../styles/variables.scss";
-
 .sidebar-tab-text {
   text-transform: capitalize;
-  color: $primary !important;
+  color: var(--white) !important;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 21px;
 }
 
 .active-tab {
-  width: auto !important;
-  background-color: $primary !important;
-  color: white !important;
+  color: var(--white) !important;
   text-transform: capitalize;
+  border-left: 5px solid var(--white) !important;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.29) 0%, rgba(217, 217, 217, 0) 91.58%) !important;
 }
 
 .black_icon {
@@ -18,5 +20,5 @@
 
 .white_icon {
   filter: brightness(0) invert(1);
-  color: $white !important;
+  color: var(--primary) !important;
 }

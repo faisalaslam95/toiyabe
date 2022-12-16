@@ -7,11 +7,15 @@ import MuiAppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
 import IconButton from '@mui/material/IconButton'
 import MenuIcon from '@mui/icons-material/Menu'
-import { Typography } from '@mui/material'
+import { Avatar, InputAdornment, TextField, Typography } from '@mui/material'
 import NavItem from './NavItem'
 import './sidebar.scss'
 import { drawerWidth } from '../mocks/menuList'
 import { NavBarProps, SideBarProps } from './types'
+import { ReactComponent as BellImage } from '../assets/images/bell.svg'
+import { ReactComponent as MenImage } from '../assets/images/men.svg'
+import { ReactComponent as DropdownIcon } from '../assets/images/dropdown.svg'
+import { ReactComponent as CalenderIcon } from '../assets/images/calender.svg'
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -37,15 +41,18 @@ const Navbar = ({ childData, handleDrawerToggle }: NavBarProps) => {
       sx={{
         width: { sm: `calc(100% - ${drawerWidth}px)` },
         ml: { sm: `${drawerWidth}px` },
+        background: '#fff',
+        borderBottom: '1px solid #F1F1F1',
       }}
+      elevation={0}
     >
-      <Toolbar>
+      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <IconButton
           color='inherit'
           aria-label='open drawer'
           edge='start'
           onClick={handleDrawerToggle}
-          sx={{ mr: 2, color: '#fff', display: { sm: 'none' } }}
+          sx={{ mr: 2, color: '#7B7B7B', display: { sm: 'none' } }}
         >
           <MenuIcon />
         </IconButton>
@@ -55,11 +62,52 @@ const Navbar = ({ childData, handleDrawerToggle }: NavBarProps) => {
           component='div'
           sx={{
             textTransform: 'capitalize',
-            color: '#fff',
+            color: '#000',
+            flex: 1.5,
           }}
         >
-          {childData}
+          {childData || 'Dashboard'}
         </Typography>
+        <Box
+          sx={{
+            display: { xs: 'none', sm: 'none', md: 'flex' },
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flex: 1,
+          }}
+        >
+          <Typography
+            variant='body1'
+            sx={{
+              textTransform: 'capitalize',
+              color: '#7B7B7B',
+            }}
+          >
+            Date Range
+          </Typography>
+          <TextField
+            size='small'
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position='start'>
+                  <Avatar
+                    sx={{ background: '#468D8D', width: '24px', height: '24px' }}
+                    variant='rounded'
+                  >
+                    <CalenderIcon />
+                  </Avatar>
+                </InputAdornment>
+              ),
+            }}
+            value={'16 July, 2022'}
+          />
+          <BellImage />
+          <MenImage />
+          <Typography variant='body1' color='#202020'>
+            Alfonso Gouse
+          </Typography>
+          <DropdownIcon />
+        </Box>
       </Toolbar>
     </AppBar>
   )
@@ -111,6 +159,7 @@ export default ({ children }: SideBarProps, props: { window: any }) => {
               width: drawerWidth,
             },
           }}
+          className='sidebar-class'
           open
         >
           <NavItem passChild={setChildData} />

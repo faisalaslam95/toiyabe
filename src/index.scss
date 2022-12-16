@@ -1,4 +1,13 @@
-@import url("./styles/variables.scss");
+
+@use "./styles/variables.scss" as v;
+
+:root {
+  --primary: #{v.$primary};
+  --secondary: #{v.$secondary};
+  --white: #{v.$white};
+  --black: #{v.$black};
+  --gray: #{v.$lightgray};
+}
 
 @mixin border($value) {
   border-radius: $value !important;
