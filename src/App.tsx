@@ -4,6 +4,24 @@ import Sidebar from './layout/Sidebar'
 const Dashboard = () => {
   return <div>Hello DashBoard</div>
 }
+const Learn = () => {
+  return <div>Hello Learn</div>
+}
+const Health = () => {
+  return <div>Hello Health</div>
+}
+const Event = () => {
+  return <div>Hello Event</div>
+}
+const Information = () => {
+  return <div>Hello Information</div>
+}
+const Assesment = () => {
+  return <div>Hello Assesment</div>
+}
+const Admins = () => {
+  return <div>Hello Admin</div>
+}
 
 function App() {
   return (
@@ -21,6 +39,54 @@ function App() {
         element={
           <Sidebar>
             <Dashboard />
+          </Sidebar>
+        }
+      />
+      <Route
+        path='/learn'
+        element={
+          <Sidebar>
+            <Learn />
+          </Sidebar>
+        }
+      />
+      <Route
+        path='/health'
+        element={
+          <Sidebar>
+            <Health />
+          </Sidebar>
+        }
+      />
+      <Route
+        path='/events'
+        element={
+          <Sidebar>
+            <Event />
+          </Sidebar>
+        }
+      />
+      <Route
+        path='/information'
+        element={
+          <Sidebar>
+            <Information />
+          </Sidebar>
+        }
+      />
+      <Route
+        path='/assesment'
+        element={
+          <Sidebar>
+            <Assesment />
+          </Sidebar>
+        }
+      />
+      <Route
+        path='/admin'
+        element={
+          <Sidebar>
+            <Information />
           </Sidebar>
         }
       />

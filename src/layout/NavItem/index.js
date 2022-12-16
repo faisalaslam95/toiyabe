@@ -6,7 +6,8 @@ import ListItemIcon from '@mui/material/ListItemIcon'
 import ListItemText from '@mui/material/ListItemText'
 import FiberManualRecordOutlinedIcon from '@mui/icons-material/FiberManualRecordOutlined'
 import { sidebarTabsList } from '../../mocks/menuList'
-import { NavItemProps } from '../types'
+import appLogo from "../../assets/images/app.svg"
+
 const NavItem = (props) => {
   const [activeTab, setActiveTab] = useState('')
   const location = useLocation()
@@ -45,20 +46,19 @@ const NavItem = (props) => {
 
   return (
     <List>
-      <ListItemIcon className='app-logo'>
-        {/* <img src={Applogo} alt="app-logo" width={"70%"} /> */}
-        Hello world
+      <ListItemIcon className='app-logo' sx={{textAlign: 'center', width:'100%', mb:1, mt:2}}>
+        <img src={appLogo} alt="app-logo" />
       </ListItemIcon>
       {sidebarTabsList.map((menu, index) => {
         let [textClass, iconColor] = ['sidebar-tab-text', 'black_icon']
         ;[textClass, iconColor] =
           activeTab === menu.key.toLowerCase()
             ? ['active-tab', 'white_icon']
-            : ['sidebar-tab-text', 'black_icon']
+            : ['sidebar-tab-text', 'white_icon']
 
         const Icon = menu.icon
         const itemIcon = menu?.icon ? (
-          <Icon stroke={1.5} size='1.3rem' />
+          <Icon stroke={1.5} size='1rem' />
         ) : (
           <FiberManualRecordOutlinedIcon />
         )
@@ -70,7 +70,7 @@ const NavItem = (props) => {
             className={textClass}
             sx={{ my: 1 }}
           >
-            <ListItemIcon className={iconColor} sx={{ minWidth: '40px' }}>
+            <ListItemIcon className={iconColor} sx={{ minWidth: '30px' }}>
               {itemIcon}
             </ListItemIcon>
             <ListItemText primary={menu.text} />

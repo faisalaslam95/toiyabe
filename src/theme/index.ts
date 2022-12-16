@@ -17,4 +17,20 @@ export const theme = createTheme({
       fontFamily: "DM Sans",
     },
   },
+  components: {
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: '#468D8D',
+        }
+      }
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root : {
+          borderRadius: '15px'
+        }
+      }
+    }
+  }
 });
