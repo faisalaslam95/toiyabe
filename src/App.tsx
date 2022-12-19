@@ -1,9 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Sidebar from './layout/Sidebar'
+import { Dashboard } from './pages/Dashboard/Dashboard'
 
-const Dashboard = () => {
-  return <div>Hello DashBoard</div>
-}
 const Learn = () => {
   return <div>Hello Learn</div>
 }
