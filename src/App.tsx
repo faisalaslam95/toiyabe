@@ -1,9 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import Sidebar from './layout/Sidebar'
-
-const Dashboard = () => {
-  return <div>Hello DashBoard</div>
-}
+import { Dashboard } from './pages/Dashboard/Dashboard'
 
 function App() {
   return (

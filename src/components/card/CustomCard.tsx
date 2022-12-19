@@ -1,6 +1,6 @@
 import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material'
 import { CustomAvatar } from '../avatar/CustomAvatar'
-import icons from '../../icons'
+import icons from '../../assets/icons'
 
 interface CustomCardProps {
   variant: string
@@ -17,6 +17,7 @@ export function CustomCard({ variant }: CustomCardProps) {
         boxShadow: variant === 'bordered' ? 'none' : '0px 6px 20px rgba(36, 41, 41, 0.1)',
         border: variant === 'bordered' ? '1px solid #DCDCDC' : 'none',
         borderRadius: '16px',
+        width: '100%',
       }}
     >
       <CardMedia>
