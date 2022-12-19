@@ -29,6 +29,12 @@ export const sidebarTabsList = [
       sub: false,
       icon: ReportIcon,
     },
+    {
+      text: "Information",
+      key: "information",
+      sub: false,
+      icon: ReportIcon,
+    },
     { 
       text: "Assesment",
       key: "assesment",
