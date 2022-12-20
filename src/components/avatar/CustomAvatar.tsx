@@ -1,7 +1,7 @@
 import { Avatar } from '@mui/material'
 
 interface CustomAvatarProps {
-  img: string
+  img: any
   name: string
   variant: any
   styles: Object

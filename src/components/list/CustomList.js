@@ -13,8 +13,8 @@ import image from '../../assets/images/image.png'
 
 export function CustomList() {
   return (
-    <List sx={{ width: '100%' }}>
-      {[1, 2, 3].map((value) => (
+    <List sx={{ width: '100%', minHeight: '312px', maxHeight: '312px', overflowY: 'scroll' }}>
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((value) => (
         <>
           <ListItem sx={{ padding: '16px' }}>
             <ListItemAvatar>
@@ -31,14 +31,14 @@ export function CustomList() {
               secondary='secondary'
             />
           </ListItem>
-          <Divider
+          {/* <Divider
             sx={{
               borderWidth: '1px',
               borderStyle: 'solid',
               borderColor:
                 'linear-gradient( 270deg, rgba(255, 255, 255, 0) 0.62%, rgba(59, 125, 125, 0.5) 51.61%, rgba(255, 255, 255, 0) 98.92%',
             }}
-          />
+          /> */}
         </>
       ))}
     </List>
