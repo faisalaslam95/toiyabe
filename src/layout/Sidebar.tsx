@@ -36,80 +36,83 @@ const AppBar = styled(MuiAppBar, {
 
 const Navbar = ({ childData, handleDrawerToggle }: NavBarProps) => {
   return (
-    <AppBar
-      position='fixed'
-      sx={{
-        width: { sm: `calc(100% - ${drawerWidth}px)` },
-        ml: { sm: `${drawerWidth}px` },
-        background: '#fff',
-        borderBottom: '1px solid #F1F1F1',
-      }}
-      elevation={0}
-    >
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <IconButton
-          color='inherit'
-          aria-label='open drawer'
-          edge='start'
-          onClick={handleDrawerToggle}
-          sx={{ mr: 2, color: '#7B7B7B', display: { sm: 'none' } }}
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography
-          variant='h6'
-          noWrap
-          component='div'
-          sx={{
-            textTransform: 'capitalize',
-            color: '#000',
-            flex: 1.5,
-          }}
-        >
-          {childData || 'Dashboard'}
-        </Typography>
-        <Box
-          sx={{
-            display: { xs: 'none', sm: 'none', md: 'flex' },
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flex: 1,
-          }}
-        >
+    <Box sx={{ background: '#468D8D' }}>
+      <AppBar
+        position='fixed'
+        sx={{
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          ml: { sm: `${drawerWidth}px` },
+          borderBottom: '1px solid #F1F1F1',
+          borderTopLeftRadius: { sm: '20px' },
+          background: '#fff',
+        }}
+        elevation={0}
+      >
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <IconButton
+            color='inherit'
+            aria-label='open drawer'
+            edge='start'
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, color: '#7B7B7B', display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
           <Typography
-            variant='body1'
+            variant='h6'
+            noWrap
+            component='div'
             sx={{
               textTransform: 'capitalize',
-              color: '#7B7B7B',
+              color: '#000',
+              flex: 1.5,
             }}
           >
-            Date Range
+            {childData || 'Dashboard'}
           </Typography>
-          <TextField
-            size='small'
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position='start'>
-                  <Avatar
-                    sx={{ background: '#468D8D', width: '24px', height: '24px' }}
-                    variant='rounded'
-                  >
-                    <CalenderIcon />
-                  </Avatar>
-                </InputAdornment>
-              ),
+          <Box
+            sx={{
+              display: { xs: 'none', sm: 'none', md: 'flex' },
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              flex: 1,
             }}
-            value={'16 July, 2022'}
-          />
-          <BellImage />
-          <MenImage />
-          <Typography variant='body1' color='#202020'>
-            Alfonso Gouse
-          </Typography>
-          <DropdownIcon />
-        </Box>
-      </Toolbar>
-    </AppBar>
+          >
+            <Typography
+              variant='body1'
+              sx={{
+                textTransform: 'capitalize',
+                color: '#7B7B7B',
+              }}
+            >
+              Date Range
+            </Typography>
+            <TextField
+              size='small'
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position='start'>
+                    <Avatar
+                      sx={{ background: '#468D8D', width: '24px', height: '24px' }}
+                      variant='rounded'
+                    >
+                      <CalenderIcon />
+                    </Avatar>
+                  </InputAdornment>
+                ),
+              }}
+              value={'16 July, 2022'}
+            />
+            <BellImage />
+            <MenImage />
+            <Typography variant='body1' color='#202020'>
+              Alfonso Gouse
+            </Typography>
+            <DropdownIcon />
+          </Box>
+        </Toolbar>
+      </AppBar>
+    </Box>
   )
 }
 export default ({ children }: SideBarProps, props: { window: any }) => {
@@ -125,8 +128,9 @@ export default ({ children }: SideBarProps, props: { window: any }) => {
 
   return (
     <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
       <Navbar childData={childData} handleDrawerToggle={handleDrawerToggle} />
+
+      <CssBaseline />
       <Box
         component='nav'
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -145,10 +149,13 @@ export default ({ children }: SideBarProps, props: { window: any }) => {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
+              background: '#fff',
+              borderTopRightRadius: '20px',
+              borderBottomRightRadius: '20px',
             },
           }}
         >
-          <NavItem passChild={setChildData} />
+          <NavItem passChild={setChildData} handleDrawerToggle={handleDrawerToggle} />
         </Drawer>
         <Drawer
           variant='permanent'
@@ -169,12 +176,12 @@ export default ({ children }: SideBarProps, props: { window: any }) => {
         component='main'
         sx={{
           flexGrow: 1,
-          p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
+          background: (theme) => theme.palette.primary.main,
         }}
       >
         <Toolbar />
-        {children}
+        <Box sx={{ p: 3, background: (theme) => theme.palette.primary.light }}>{children}</Box>
       </Box>
     </Box>
   )

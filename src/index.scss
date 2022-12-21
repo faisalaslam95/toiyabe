@@ -36,3 +36,18 @@ body {
 .MuiOutlinedInput-root{
   padding: 0px !important;
 }
+.divider{
+height: 1px;
+border-image-source: linear-gradient(270deg, rgba(255, 255, 255, 0) 0.62%, rgba(255, 255, 255, 0.5) 51.61%, rgba(255, 255, 255, 0) 98.92%);
+background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0.62%, rgba(255, 255, 255, 0.5) 51.61%, rgba(255, 255, 255, 0) 98.92%);
+@media screen and (max-width: 768px) {  
+height: 1px;
+border-image-source: linear-gradient(270deg, rgba(255, 255, 255, 0) 0.62%, rgba(59, 125, 125, 0.5) 51.61%, rgba(255, 255, 255, 0) 98.92%);
+background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0.62%, rgba(59, 125, 125, 0.5) 51.61%, rgba(255, 255, 255, 0) 98.92%);
+}
+}
+.itemDivider{
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0.62%, rgba(59, 125, 125, 0.5) 51.61%, rgba(255, 255, 255, 0) 98.92%);
+  height: 1px;
+  border-image-source: linear-gradient(270deg, rgba(255, 255, 255, 0) 0.62%, rgba(59, 125, 125, 0.5) 51.61%, rgba(255, 255, 255, 0) 98.92%);
+}

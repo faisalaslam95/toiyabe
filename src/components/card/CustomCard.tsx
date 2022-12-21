@@ -1,12 +1,16 @@
 import { Card, CardContent, CardMedia, Grid, Typography } from '@mui/material'
 import { CustomAvatar } from '../avatar/CustomAvatar'
 import icons from '../../assets/icons'
-
+interface cardDataProps {
+  name: string
+  amount: number
+}
 interface CustomCardProps {
   variant: string
+  cardData?: cardDataProps
 }
 
-export function CustomCard({ variant }: CustomCardProps) {
+export function CustomCard({ variant, cardData }: CustomCardProps) {
   return (
     <Card
       sx={{
@@ -48,7 +52,7 @@ export function CustomCard({ variant }: CustomCardProps) {
             color: variant === 'bordered' ? '#000' : '#787878',
           }}
         >
-          Scheduled Appointments
+          {cardData?.name}
         </Typography>
         <Typography
           sx={{
@@ -59,7 +63,7 @@ export function CustomCard({ variant }: CustomCardProps) {
             color: variant === 'bordered' ? '#000' : '#468D8D',
           }}
         >
-          2,000
+          {cardData?.amount}
         </Typography>
       </CardContent>
     </Card>

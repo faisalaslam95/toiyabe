@@ -7,12 +7,19 @@ import ListItemText from '@mui/material/ListItemText'
 import FiberManualRecordOutlinedIcon from '@mui/icons-material/FiberManualRecordOutlined'
 import { sidebarTabsList } from '../../mocks/menuList'
 import appLogo from "../../assets/images/app.svg"
+import mobileLogo from "../../assets/images/mobilelogo.svg"
+import classNames from 'classnames'
+import { Box, Button, useMediaQuery } from '@mui/material'
+import { LogoutOutlined } from '@mui/icons-material'
+import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
+import { useTheme } from '@mui/system'
 
 const NavItem = (props) => {
   const [activeTab, setActiveTab] = useState('')
   const location = useLocation()
   const navigate = useNavigate()
-
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up('sm'));
   useEffect(() => {
     highlightActiveTab()
   }, [])
@@ -46,12 +53,17 @@ const NavItem = (props) => {
 
   return (
     <List>
-      <ListItemIcon className='app-logo' sx={{textAlign: 'center', width:'100%', mb:1, mt:2}}>
-        <img src={appLogo} alt="app-logo" />
+      <ListItemIcon sx={{textAlign: 'right', mr:1, display: { xs: 'block', sm: 'none' }}} onClick={() => props.handleDrawerToggle()}>
+         <CancelOutlinedIcon color='#9DA5AF'/>
       </ListItemIcon>
+      
+      <ListItemIcon className='app-logo' sx={{textAlign: 'center', width:'100%', mb:2, mt:3}}>
+        <img src={isDesktop ? appLogo : mobileLogo} alt="app-logo" />
+      </ListItemIcon>
+      {!isDesktop && <div className='divider'/>}
       {sidebarTabsList.map((menu, index) => {
-        let [textClass, iconColor] = ['sidebar-tab-text', 'black_icon']
-        ;[textClass, iconColor] =
+        let [textClass, iconColor] = ['sidebar-tab-text', 'white_icon'];
+        [textClass, iconColor] =
           activeTab === menu.key.toLowerCase()
             ? ['active-tab', 'white_icon']
             : ['sidebar-tab-text', 'white_icon']
@@ -63,11 +75,12 @@ const NavItem = (props) => {
           <FiberManualRecordOutlinedIcon />
         )
         return (
+          <>
           <ListItem
             button
             key={menu.key}
             onClick={(e) => onTabHandler(e, menu)}
-            className={textClass}
+            className={classNames(textClass)}
             sx={{ my: 1 }}
           >
             <ListItemIcon className={iconColor} sx={{ minWidth: '30px' }}>
@@ -75,8 +88,13 @@ const NavItem = (props) => {
             </ListItemIcon>
             <ListItemText primary={menu.text} />
           </ListItem>
+          {isDesktop && menu.text === 'Information' && <div className='divider'></div>}
+          </>
         )
       })}
+      <Box sx={{mt: 16, textAlign:'center',  display: { xs: 'block', sm: 'none' }}}>
+        <Button variant='contained' size='large' sx={{borderRadius: '10px'}} startIcon={<LogoutOutlined />}>Log out</Button>
+      </Box>
     </List>
   )
 }

@@ -84,7 +84,7 @@ function App() {
         path='/admin'
         element={
           <Sidebar>
-            <Information />
+            <Admins />
           </Sidebar>
         }
       />
