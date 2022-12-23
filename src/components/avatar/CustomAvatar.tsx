@@ -1,10 +1,9 @@
 import { Avatar } from '@mui/material'
-
 interface CustomAvatarProps {
   img: any
-  name: string
-  variant: any
-  styles: Object
+  name?: string
+  variant?: any
+  styles?: Object
 }
 
 export function CustomAvatar({ img, name, variant, styles }: CustomAvatarProps) {

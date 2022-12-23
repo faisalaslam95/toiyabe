@@ -3,10 +3,10 @@ import { CustomAvatar } from '../avatar/CustomAvatar'
 import icons from '../../assets/icons'
 interface cardDataProps {
   name: string
-  amount: number
+  amount?: string | number
 }
 interface CustomCardProps {
-  variant: string
+  variant?: string
   cardData?: cardDataProps
 }
 
@@ -26,7 +26,7 @@ export function CustomCard({ variant, cardData }: CustomCardProps) {
     >
       <CardMedia>
         <CustomAvatar
-          img={icons.medicineIcon}
+          img={variant === 'bordered' ? icons.medicineIcon : icons.medicineIcon}
           name='abc'
           variant='rounded'
           styles={{

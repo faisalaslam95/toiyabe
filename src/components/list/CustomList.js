@@ -4,14 +4,11 @@ import {
   ListItem,
   ListItemText,
   ListItemAvatar,
-  IconButton,
-  Avatar,
-  Divider,
   Typography,
 } from '@mui/material'
 import { CustomAvatar } from '../avatar/CustomAvatar'
 import image from '../../assets/images/image.png'
-
+import icons from 'assets/icons'
 export function CustomList() {
   return (
     <List sx={{ width: '100%' , p:3}} >

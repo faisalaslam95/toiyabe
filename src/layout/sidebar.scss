@@ -38,8 +38,9 @@
 
 .white_icon {
   color: var(--white) !important;
+  filter: brightness(1) invert(0);
   @media only screen and (max-width: 768px) {
-    filter: brightness(1) invert(0);
     color: var(--primary) !important;
+    filter: brightness(0) invert(0);
   }
 }
