@@ -14,6 +14,7 @@ import { LogoutOutlined } from '@mui/icons-material'
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import { useTheme } from '@mui/system'
 
+
 const NavItem = (props) => {
   const [activeTab, setActiveTab] = useState('')
   const location = useLocation()
@@ -23,7 +24,6 @@ const NavItem = (props) => {
   useEffect(() => {
     highlightActiveTab()
   }, [])
-
   const highlightActiveTab = () => {
     let pathname = location.pathname.split('/')
     let activeTab = pathname[pathname.length - 1]

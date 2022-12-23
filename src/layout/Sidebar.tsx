@@ -16,6 +16,10 @@ import { ReactComponent as BellImage } from '../assets/images/bell.svg'
 import { ReactComponent as MenImage } from '../assets/images/men.svg'
 import { ReactComponent as DropdownIcon } from '../assets/images/dropdown.svg'
 import { ReactComponent as CalenderIcon } from '../assets/images/calender.svg'
+import { ReactComponent as AppIcon } from '../assets/images/app.svg'
+import { ReactComponent as BreadCrumIcon } from '../assets/icons/bread.svg'
+import { ReactComponent as SearchIcon } from '../assets/icons/search.svg'
+import BottomNav from './BottomNav'
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== 'open',
@@ -36,15 +40,18 @@ const AppBar = styled(MuiAppBar, {
 
 const Navbar = ({ childData, handleDrawerToggle }: NavBarProps) => {
   return (
-    <Box sx={{ background: '#468D8D' }}>
+    <Box>
       <AppBar
         position='fixed'
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          borderBottom: '1px solid #F1F1F1',
+          borderBottom: { sm: '1px solid #F1F1F1' },
           borderTopLeftRadius: { sm: '20px' },
-          background: '#fff',
+          background: {
+            xs: (theme) => theme.palette.primary.main,
+            sm: '#fff',
+          },
         }}
         elevation={0}
       >
@@ -54,7 +61,7 @@ const Navbar = ({ childData, handleDrawerToggle }: NavBarProps) => {
             aria-label='open drawer'
             edge='start'
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, color: '#7B7B7B', display: { sm: 'none' } }}
+            sx={{ mr: 2, color: '#fff', display: { sm: 'none' } }}
           >
             <MenuIcon />
           </IconButton>
@@ -66,10 +73,37 @@ const Navbar = ({ childData, handleDrawerToggle }: NavBarProps) => {
               textTransform: 'capitalize',
               color: '#000',
               flex: 1.5,
+              display: { xs: 'none', sm: 'block' },
             }}
           >
             {childData || 'Dashboard'}
           </Typography>
+          <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '30px',
+                width: '30px',
+              }}
+            >
+              <MenImage />
+            </Box>
+          </Box>
+          <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '30px',
+                width: '30px',
+              }}
+            >
+              <MenImage />
+            </Box>
+          </Box>
           <Box
             sx={{
               display: { xs: 'none', sm: 'none', md: 'flex' },
@@ -111,6 +145,35 @@ const Navbar = ({ childData, handleDrawerToggle }: NavBarProps) => {
             <DropdownIcon />
           </Box>
         </Toolbar>
+        <Box
+          sx={{
+            display: { xs: 'block', sm: 'none' },
+            // minHeight: '200px',
+            background: (theme) => theme.palette.primary.main,
+            borderBottomRightRadius: '20px',
+          }}
+        >
+          <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+            <TextField
+              placeholder='Search'
+              size='small'
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position={'start'} sx={{ pl: 1 }}>
+                    <SearchIcon />
+                  </InputAdornment>
+                ),
+              }}
+              sx={{
+                flex: 1,
+                background: `linear-gradient(92.12deg, rgba(255, 255, 255, 0.3) -8.66%, rgba(255, 255, 255, 0.15) 111.93%)`,
+                borderRadius: '15px',
+                m: 2,
+                color: '#fff',
+              }}
+            />
+          </Box>
+        </Box>
       </AppBar>
     </Box>
   )
@@ -181,7 +244,12 @@ export default ({ children }: SideBarProps, props: { window: any }) => {
         }}
       >
         <Toolbar />
-        <Box sx={{ p: 3, background: (theme) => theme.palette.primary.light }}>{children}</Box>
+        <Box sx={{ p: 3, background: (theme) => theme.palette.primary.light }}>
+          {children}
+          <Box sx={{ display: { sx: 'block', sm: 'none' }, marginTop: '50px' }}>
+            <BottomNav />
+          </Box>
+        </Box>
       </Box>
     </Box>
   )

@@ -1,8 +1,9 @@
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import ReportIcon from "@mui/icons-material/Report";
-import DocumentScannerOutlinedIcon from "@mui/icons-material/DocumentScannerOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
-import RequestPageOutlinedIcon from "@mui/icons-material/RequestPageOutlined";
+import {ReactComponent as DashboardIcon} from "../assets/icons/dashboard.svg"
+import {ReactComponent as LearnIcon} from "../assets/icons/learn.svg"
+import {ReactComponent as EventIcon} from "../assets/icons/event.svg"
+import {ReactComponent as InformationIcon} from "../assets/icons/information.svg"
+import {ReactComponent as AdminIcon} from "../assets/icons/admin.svg"
+import {ReactComponent as AssesmentIcon} from "../assets/icons/assesments.svg"
 
 export const sidebarTabsList = [
     {
@@ -15,37 +16,37 @@ export const sidebarTabsList = [
       text: "Learn",
       key: "learn",
       sub: false,
-      icon: RequestPageOutlinedIcon,
+      icon: LearnIcon,
     },
     {
       text: "Health",
       key: "health",
       sub: false,
-      icon: DocumentScannerOutlinedIcon,
+      icon: LearnIcon,
     },
     {
       text: "Events",
       key: "events",
       sub: false,
-      icon: ReportIcon,
+      icon: EventIcon,
     },
     {
       text: "Information",
       key: "information",
       sub: false,
-      icon: ReportIcon,
+      icon: InformationIcon,
     },
     { 
       text: "Assesment",
       key: "assesment",
       sub: false,
-      icon: SettingsOutlinedIcon,
+      icon: AssesmentIcon,
     },
     {
       text: "Admin",
       key: "admin",
       sub: false,
-      icon: SettingsOutlinedIcon,
+      icon: AdminIcon,
     },
   ];
   

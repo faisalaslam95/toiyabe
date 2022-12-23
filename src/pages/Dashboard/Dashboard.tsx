@@ -1,11 +1,11 @@
 import React from 'react'
 import { Grid } from '@mui/material'
-import { DashboardItem } from './components/DashboardItem'
 import { Wrapper } from '../../components/wrapper/Wrapper'
 import { CustomList } from '../../components/list/CustomList'
 import { CustomCard } from '../../components/card/CustomCard'
 import { dummyCardList } from 'mocks/dashboardMock'
 import CommonTitle from 'components/CommonTitle/Index'
+import BasicTabs from 'components/tabs'
 
 export function Dashboard() {
   return (
@@ -49,7 +49,8 @@ export function Dashboard() {
         <Grid item xs={12} md={6}>
           <CommonTitle title='Surveys' />
           <Wrapper>
-            <CustomList />
+            {/* <CustomList /> */}
+            <BasicTabs />
           </Wrapper>
         </Grid>
       </Grid>
